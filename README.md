@@ -2,6 +2,20 @@ RTL8188FU driver for Linux kernel 4.15.x ~ 6.7.x (Linux Mint, Ubuntu or Debian D
 
 info: rtl8188fu support will be add to rtl8xxxu module of Linux kernel. https://patchwork.kernel.org/project/linux-wireless/patch/b14f299d-3248-98fe-eee1-ba50d2e76c74@gmail.com/
 
+## Debian based system (One command setup)
+`sudo apt-get install build-essential git dkms linux-headers-$(uname -r) -y && cd /tmp && git clone https://github.com/corneal64/RTL8188-linux-driver && sudo dkms install ./RTL8188-linux-driver && sudo cp ./rtl8188fu/firmware/rtl8188fufw.bin /lib/firmware/rtlwifi/ && cd .. && sudo rm -r RTL8188-linux-driver && echo "\n\nInstallation Complete\!"`
+
+### Enable rtl8188fu module
+
+Run following command for up to kernel 6.1
+
+`sudo modprobe rtl8188fu`
+
+Run following commands for kernel 6.2 and up
+
+`sudo modprobe -r rtl8188fu`
+
+`sudo modprobe rtl8188fu`
 
 ------------------
 
@@ -9,7 +23,7 @@ info: rtl8188fu support will be add to rtl8xxxu module of Linux kernel. https://
 
 `sudo apt-get install build-essential git dkms linux-headers-$(uname -r)`
 
-`git clone https://github.com/kelebek333/rtl8188fu`
+`git clone https://github.com/corneal64/RTL8188-linux-driver`
 
 `sudo dkms install ./rtl8188fu`
 
